@@ -53,12 +53,16 @@ class SuccessForm extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    successFromBack: state.successFromBack
-});
+const mapStateToProps = (state) => {
+    return{
+        successFromBack: state.successFromBack
+    }
+};
 
-const mapDispatchToProps = {
-    changeSuccessFromBack
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        changeSuccessFromBack:()=>{dispatch(changeSuccessFromBack())}
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SuccessForm);
