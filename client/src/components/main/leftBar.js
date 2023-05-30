@@ -317,7 +317,7 @@ const LeftBar =(props)=>{
                 </option>
                 ))}
             </select>
-            <button className={styles.button} onClick={
+            <button className={styles.genreButton} onClick={
                 genre!=='Seleccionar un género'&&genre!==''?
                 ()=>globalFilterGenreHandler(genre):
                 null}       
