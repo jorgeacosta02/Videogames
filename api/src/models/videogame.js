@@ -44,9 +44,6 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull:false
     },
-    genreIds:{
-      type: DataTypes.ARRAY(DataTypes.STRING), 
-    }
   },
     {
       timestamps:false,
@@ -56,18 +53,3 @@ module.exports = (sequelize) => {
 
 const basename = path.basename(__filename);
 console.log(basename);
-
-// ID (deben ser distintos a los que vienen de la API). *
-// Nombre. *
-// Descripción. *
-// Plataformas. *
-// Imagen. *
-// Fecha de lanzamiento. *
-// Rating. *
-
-// Name. *
-// Description. *
-// platforms. *
-// Image. *
-// Release date. *
-// Classification. *

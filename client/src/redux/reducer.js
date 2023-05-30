@@ -19,8 +19,7 @@ import {
     PREV_PAGE,
     CURRENT_PAGE_0,
     CHANGE_GENRE,
-    FILTER_GENRE_API,
-    FILTER_GENRE_DB,
+    FILTER_GENRE,
     CLEAN_GENRE,
     DISPLAY_API,
     DISPLAY_DB,
@@ -35,6 +34,7 @@ import {
     REMOVE_ALL_GENRES,
     CHANGE_ERORR_FROM_BACK,
     CHANGE_SUCCESS_FROM_BACK,
+    SEARCH_GENRES,
        
 } from "./actions"
 
@@ -57,6 +57,7 @@ const initialState = {
     az:true,
     ratAZ:true,
     genre:'',
+    genres:[{id:0, name:'Seleccionar un género'}],
     filteredGenre:[],
     selectedGenres:[],
     errorFromBack:'',
@@ -209,35 +210,31 @@ const reducer = (state=initialState,action)=>{
             };
 
         case CHANGE_GENRE:
+            console.log('action.payload en CHANGE_GENRE del reducer', action.payload);
             return{
                 ...state,
                 genre: action.payload
             };
 
-        case FILTER_GENRE_API:
-            console.log('action.payload en FILTER_GENRE_API',action.payload)
-            console.log('state.gamesFromApi',state.gamesFromApi)
+        case FILTER_GENRE:
             
+            const filterGenreApi = state.gamesFromApi.filter(
+                (game) => game.genres.some((genre) => genre.name.toLowerCase() === action.payload.toLowerCase()));
+
+            const filterGernreDB = state.gamesFromDB.filter((game) => {
+                return game.genres.some((genre) => genre.toLowerCase() === action.payload.toLowerCase());
+                });
+
             return{
                 ...state,
-                display: state.gamesFromApi.filter(
-                    (game) => game.genres.some((genre) => genre.name.toLowerCase() === action.payload.toLowerCase()))
-            };
+                display: filterGenreApi.concat(filterGernreDB)
 
-        case FILTER_GENRE_DB:
-            const juegosFiltrados = state.gamesFromDB.filter((game) => {
-            return game.genres.some((genre) => genre.toLowerCase() === action.payload.toLowerCase());
-            });
-
-            return {
-                ...state,
-                display: juegosFiltrados
             };
 
         case CLEAN_GENRE:
             return{
                 ...state,
-                genre: ''
+                genre: 'Seleccionar un género'
             };
 
         case DISPLAY_API:
@@ -374,6 +371,12 @@ const reducer = (state=initialState,action)=>{
             return {
                 ...state,
                 successFromBack: action.payload
+            };
+
+        case SEARCH_GENRES:
+            return {
+                ...state,
+                genres:state.genres.concat(action.payload)
             };
 
         default:

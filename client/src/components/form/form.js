@@ -12,6 +12,7 @@ import {
     removeAllGenres,
     changeErrorFromBack,
     changeSuccessFromBack,
+    searchGenres,
 } from "../../redux/actions";
 
 export const videogameURL = 'http://localhost:3001/videogames';
@@ -22,31 +23,34 @@ const Form =()=>{
     const selectedGenres = useSelector(state => state.selectedGenres);
     const errorFromBack = useSelector(state => state.errorFromBack);
     const successFromBack = useSelector(state => state.successFromBack);
+    const genres = useSelector(state => state.genres);
     console.log('selectedGenres',selectedGenres);
 
-    const [genres, setGenres] = useState([]);
+    // const [genres, setGenres] = useState([]);
 
-    const searchGenres = async () => {
-        console.log('entrando a searchGenres')
-        try {
-            console.log('entrando al try de searchGenres')
-            const response = await fetch('http://localhost:3001/genres');
-            console.log('response en el try de searchGenres', response);
-            if (!response.ok) {
-                throw new Error('Error en la respuesta de la solicitud');
-            }
-            const data = await response.json();
-            console.log('data en searchGenres', data);
-            setGenres(data);
-        } catch (error) {
-            console.error(error);
-            console.log('Error en useEffect del form al obtener los tipos de pokemon');
-        }
-      };
+    // const searchGenres = async () => {
+    //     console.log('entrando a searchGenres')
+    //     try {
+    //         console.log('entrando al try de searchGenres')
+    //         const response = await fetch('http://localhost:3001/genres');
+    //         console.log('response en el try de searchGenres', response);
+    //         if (!response.ok) {
+    //             throw new Error('Error en la respuesta de la solicitud');
+    //         }
+    //         const data = await response.json();
+    //         console.log('data en searchGenres', data);
+    //         setGenres(data);
+    //     } catch (error) {
+    //         console.error(error);
+    //         console.log('Error en useEffect del form al obtener los tipos de pokemon');
+    //     }
+    //   };
+
+
       
-    useEffect(() => {
-        searchGenres();
-    },[]);
+    // useEffect(() => {
+    //     searchGenresHandler();
+    // },[]);
     
     console.log(searchGenres);
     
@@ -389,13 +393,6 @@ const Form =()=>{
                             )}
                     </div>
                 </div>
-                {/* {errorFromBack!=='' &&
-                    <div className={styles.message}>
-                    <p>
-                    {`${errorFromBack}`}
-                    </p>
-                    </div>
-                } */}
             </div>
             {successFromBack && <SuccessForm/>}
             {errorFromBack && <ErrorForm/>}

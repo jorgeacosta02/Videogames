@@ -20,10 +20,8 @@ export const NEXT_PAGE = 'NEXT_PAGE';
 export const PREV_PAGE = 'PREV_PAGE';
 export const CURRENT_PAGE_0 = 'CURRENT_PAGE_0';
 export const UPDATE_PAGINATED = 'UPDATE_PAGINATED';
-export const SEARCH_GENRES = 'SEARCH_GENRES';
 export const CHANGE_GENRE = 'CHANGE_GENRE';
-export const FILTER_GENRE_API = 'FILTER_GENRE_API';
-export const FILTER_GENRE_DB = 'FILTER_GENRE_DB';
+export const FILTER_GENRE = 'FILTER_GENRE';
 export const CLEAN_GENRE = 'CLEAN_GENRE';
 export const DISPLAY_API = 'DISPLAY_API';
 export const DISPLAY_DB = 'DISPLAY_DB';
@@ -38,6 +36,7 @@ export const REMOVE_GENRE = 'REMOVE_GENRE';
 export const REMOVE_ALL_GENRES = 'REMOVE_ALL_GENRES';
 export const CHANGE_ERORR_FROM_BACK = 'CHANGE_ERORR_FROM_BACK';
 export const CHANGE_SUCCESS_FROM_BACK = 'CHANGE_SUCCESS_FROM_BACK';
+export const SEARCH_GENRES = 'SEARCH_GENRES';
 
 dotenv.config();
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -189,12 +188,8 @@ export const changeGenre =(genre)=>{
     return {type:CHANGE_GENRE, payload:genre}
 };
 
-export const filterGenreApi =(genre)=>{
-    return {type:FILTER_GENRE_API, payload:genre}
-};
-
-export const filterGenreDB =(genre)=>{
-    return {type:FILTER_GENRE_DB, payload:genre}
+export const filterGenre =(genre)=>{
+    return {type:FILTER_GENRE, payload:genre}
 };
 
 export const cleanGenre =()=>{
@@ -257,3 +252,21 @@ export const changeErrorFromBack = (value) => {
 export const changeSuccessFromBack = (value) => {
     return {type: CHANGE_SUCCESS_FROM_BACK, payload: value};
 };
+
+export const searchGenres = () => async (dispatch) => {
+    console.log('entrando a searchGenres')
+    try {
+        console.log('entrando al try de searchGenres')
+        const response = await fetch('http://localhost:3001/genres');
+        console.log('response en el try de searchGenres', response);
+        if (!response.ok) {
+            throw new Error('Error en la respuesta de la solicitud');
+        }
+        const data = await response.json();
+        console.log('data en searchGenres', data);
+        return dispatch({type: SEARCH_GENRES, payload: data})
+    } catch (error) {
+        console.error(error);
+        console.log(error.message);
+    }
+  };

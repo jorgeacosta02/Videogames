@@ -1,13 +1,13 @@
 import styles from './leftBar.module.css';
 import React,{ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { apiKey } from '../form/form';
 
 import { 
     getApi,
     getDB,
     concat,
     concatToDisplay,
+    searchGenres,
     changeId,
     id0,
     getDBId,
@@ -20,8 +20,7 @@ import {
     getDBName,
     nameConcat,
     changeGenre,
-    filterGenreApi,
-    filterGenreDB,
+    filterGenre,
     cleanGenre,
     displayApi,
     displayDB,
@@ -41,19 +40,20 @@ const LeftBar =(props)=>{
     const dispatch = useDispatch();
     const display = useSelector(state => state.display);
     const gamesFromApi = useSelector(state => state.gamesFromApi);
-    const gamesFromDB = useSelector(state => state.gamesFromDB);
-    const concatened = useSelector(state => state.concatened);
     const id = useSelector(state => state.id);
     const name = useSelector(state => state.name);
     const nameConcatened = useSelector(state => state.nameConcatened);
     const az = useSelector(state => state.az);
     const ratAZ = useSelector(state => state.ratAZ);
     const genre = useSelector(state => state.genre);
+    const genres = useSelector(state => state.genres);
 
+    console.log('genres en leftBar', genres)
     console.log('display en left bar',display);
 
     const start = async ()=>{
         await postGenres();
+        await searchGenresHandler();
         await currentPage0Handler();
         await getApiHandler();
         await getDBHandler();
@@ -61,6 +61,7 @@ const LeftBar =(props)=>{
         await concatToDisplayHandler();
     };
     
+
     useEffect(()=>{
         start();
     },[]);
@@ -76,25 +77,29 @@ const LeftBar =(props)=>{
             console.log(error);
         }
     };
+
+    const searchGenresHandler = ()=>{
+        dispatch(searchGenres());
+    };
     
     const getApiHandler = ()=>{
-        return dispatch(getApi())
+        return dispatch(getApi());
     };
     
     const getDBHandler = ()=>{
-        return dispatch(getDB())
+        return dispatch(getDB());
     };
     
     const concatHandler = ()=>{
-        return dispatch(concat())
+        return dispatch(concat());
     };
     
     const concatToDisplayHandler = ()=>{
-        return dispatch(concatToDisplay())
+        return dispatch(concatToDisplay());
     };
     
     const changeIdHandler = (event)=>{
-        console.log('event.target.value',event.target.value)
+        console.log('event.target.value',event.target.value);
         const value = event.target.value;
         if(typeof(value)==='string'){
             return dispatch(changeId(value));
@@ -143,11 +148,11 @@ const LeftBar =(props)=>{
 
     const changeNameHandler =(event)=>{
         const name = event.target.value;
-        return dispatch(changeName(name))
+        return dispatch(changeName(name));
     };
     
     const name0Handler =()=>{
-        return dispatch(name0())
+        return dispatch(name0());
     };
     
     const getApiNameHandler =(name)=>{
@@ -166,47 +171,40 @@ const LeftBar =(props)=>{
         console.log('name en globalGetNameHandler', name);
         currentPage0Handler();
         if(name!==''){
+            await currentPage0Handler();
             await getApiNameHandler(name);
             await getDBNameHandler(name);
             await nameConcatHandler();
-            return dispatch(name0());
+            return name0Handler();
         }else{
-            return dispatch(name0());
+            return name0Handler();
         }
     };
     
     console.log('nameConcatened del reducer', nameConcatened);
 
     const currentPage0Handler =()=>{
-        return dispatch(currentPage0())
+        return dispatch(currentPage0());
     };
 
     const changeGenreHandler = (event)=>{
-        const genre = event.target.value;
-        return dispatch(changeGenre(genre))
+        console.log('en changeGenreHandler de leftBar');
+        const genre = event.target.options[event.target.selectedIndex].label;
+        return dispatch(changeGenre(genre));
     };
 
-    const filterGenreApiHandler = (genre)=>{
-        console.log('genre en filterTypeHandler de leftBar', genre)
-        return dispatch(filterGenreApi(genre))
-    };
-
-    const filterGenreDBHandler = (genre)=>{
-        console.log('genre en filterTypeHandler de leftBar', genre)
-        return dispatch(filterGenreDB(genre))
+    const filterGenreHandler = (genre)=>{
+        console.log('genre en filterTypeHandler de leftBar', genre);
+        return dispatch(filterGenre(genre));
     };
 
     const cleanGenreHandler =()=>{
         return dispatch(cleanGenre());
     };
 
-    const globalFilterApiGenreHandler = async (genre)=>{
-        await filterGenreApiHandler(genre);
-        return cleanGenreHandler();
-    };
-
-    const globalFilterDBGenreHandler = async (genre)=>{
-        await filterGenreDBHandler(genre);
+    const globalFilterGenreHandler = async (genre)=>{
+        await currentPage0Handler();
+        await filterGenreHandler(genre);
         return cleanGenreHandler();
     };
 
@@ -216,7 +214,7 @@ const LeftBar =(props)=>{
     
     const globalDisplayApiHandler = ()=>{
         currentPage0Handler();
-        displayApiHandler()
+        displayApiHandler();
     };
     
     const displayDBHandler = ()=>{
@@ -225,7 +223,7 @@ const LeftBar =(props)=>{
     
     const globalDisplayDBHandler =()=>{
         currentPage0Handler();
-        displayDBHandler()
+        displayDBHandler();
     };
     
     const globalDisplayConcatHandler = async ()=>{
@@ -248,17 +246,17 @@ const LeftBar =(props)=>{
     
     const changeAzHandler =(value)=>{
         console.log('changeAzHandler funciona');
-        return dispatch(changeAz(value))
+        return dispatch(changeAz(value));
     };
     
     const nameAZHandler =()=>{
         console.log('nameAZHandler funciona');
-        return dispatch(nameAZ())
+        return dispatch(nameAZ());
     };
    
     const nameZAHandler =()=>{
         console.log('nameAZHandler funciona');
-        return dispatch(nameZA())
+        return dispatch(nameZA());
     };
 
     const globalRatingAZHandler = ()=>{
@@ -275,25 +273,20 @@ const LeftBar =(props)=>{
     
     const changeRatingAZHandler =(value)=>{
         console.log('changeAZHandler funciona');
-        return dispatch(changeRatingAZ(value))
+        return dispatch(changeRatingAZ(value));
     };
     
     const ratingAZHandler =()=>{
         console.log('ratingAZHandler funciona');
-        return dispatch(ratingAZ())
+        return dispatch(ratingAZ());
     };
    
     const ratingZAHandler =()=>{
         console.log('ratingZAHandler funciona');
-        return dispatch(ratingZA())
+        return dispatch(ratingZA());
     };  
-   
-
-    console.log('display en leftBar 200', display);
-    console.log('concatened', concatened);
-    console.log('gamesFromApi', gamesFromApi);
-    console.log('gamesFromDB', gamesFromDB);
-   
+    
+    console.log('genre en leftBar', genre);
 
     return(
         <div className={styles.container}>
@@ -307,13 +300,29 @@ const LeftBar =(props)=>{
             <button className={styles.button} onClick={()=>globalGetNameHandler(name)}       
             >Buscar por nombre </button>
 
-             <label className={styles.label}>Seleccionar Género:</label>
-            <input className={styles.input} type='text' onChange={changeGenreHandler} value={genre}/>
-            <button className={styles.button} onClick={()=>globalFilterApiGenreHandler(genre)}       
-            >Buscar por Género en Api </button>
-            <button className={styles.button} onClick={()=>globalFilterDBGenreHandler(genre)}       
-            >Buscar por Género en Base </button>
-
+            <label className={styles.label}>Seleccionar Género:</label>
+            <select
+                className={styles.select}
+                id="genre"
+                name="genre"
+                value={genre}
+                onChange={changeGenreHandler}
+            >
+                {genres.map((g) => (
+                    <option
+                    key={g.id}
+                    value={g.id}
+                >
+                    {g.name}
+                </option>
+                ))}
+            </select>
+            <button className={styles.button} onClick={
+                genre!=='Seleccionar un género'&&genre!==''?
+                ()=>globalFilterGenreHandler(genre):
+                null}       
+            >Buscar por el género: {genre!=='Seleccionar un género'&&genre}</button>
+        
             <button className={styles.button} onClick={globalDisplayApiHandler}>Mostrar juegos de la Api</button>
             <button className={styles.button} onClick={globalDisplayDBHandler}>Mostrar juegos de la Base</button>
             <button className={styles.button} onClick={globalDisplayConcatHandler}>Mostrar todos</button>
