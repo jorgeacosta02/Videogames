@@ -3,6 +3,11 @@
     box-sizing: border-box;
     padding: 8px 8px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
     width: 16%;
     height: 83vh;
     top: 13vh;
@@ -19,6 +24,7 @@
     text-decoration: none;
     display: inline-block;
     max-height: 56px;
+    /* height: 28px; */
     width: 90%;
     margin-top: 10px;
     color: white;
@@ -46,4 +52,5 @@
     height: 30px;
     margin-bottom: 10px;
     text-align: center;
+    padding: 0px;
 }
