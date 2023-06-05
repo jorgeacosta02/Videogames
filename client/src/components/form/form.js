@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from './form.module.css';
 import GenreName from "./genreName";
 import { Link } from "react-router-dom";
@@ -15,7 +15,8 @@ import {
     searchGenres,
 } from "../../redux/actions";
 
-export const videogameURL = 'http://localhost:3001/videogames';
+// export const videogameURL = 'http://localhost:3001/videogames';
+export const videogameURL = 'https://videogames-henry-backend-production.up.railway.app/';
 
 const Form =()=>{
     
@@ -25,36 +26,10 @@ const Form =()=>{
     const successFromBack = useSelector(state => state.successFromBack);
     const genres = useSelector(state => state.genres);
     console.log('selectedGenres',selectedGenres);
-
-    // const [genres, setGenres] = useState([]);
-
-    // const searchGenres = async () => {
-    //     console.log('entrando a searchGenres')
-    //     try {
-    //         console.log('entrando al try de searchGenres')
-    //         const response = await fetch('http://localhost:3001/genres');
-    //         console.log('response en el try de searchGenres', response);
-    //         if (!response.ok) {
-    //             throw new Error('Error en la respuesta de la solicitud');
-    //         }
-    //         const data = await response.json();
-    //         console.log('data en searchGenres', data);
-    //         setGenres(data);
-    //     } catch (error) {
-    //         console.error(error);
-    //         console.log('Error en useEffect del form al obtener los tipos de pokemon');
-    //     }
-    //   };
-
-
-      
-    // useEffect(() => {
-    //     searchGenresHandler();
-    // },[]);
     
     console.log(searchGenres);
     
-    const [estado,setEstado] = useState({
+    const [gameContent,setGameContent] = useState({
         name:'',
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUSyftxMxT5Jul0j3FOSIyT4djzuJZFf5CYw&usqp=CAU',
         description:'',
@@ -75,13 +50,13 @@ const Form =()=>{
     let Error = true;
 
     if(
-        estado.name
-        && estado.image
-        && estado.description
-        && estado.platforms
-        && estado.releaseDate
-        && estado.rating
-        && estado.genreIds.length!==0
+        gameContent.name
+        && gameContent.image
+        && gameContent.description
+        && gameContent.platforms
+        && gameContent.releaseDate
+        && gameContent.rating
+        && gameContent.genreIds.length!==0
         && !errorName
     ){
         Error = false;
@@ -92,18 +67,18 @@ const Form =()=>{
         const selGenre = event.target.value;
         const selGenreName = event.target.options[event.target.selectedIndex].label;
         
-        if(!estado.genreIds.includes(selGenre)){
-            setEstado({...estado,genreIds:[...estado.genreIds,selGenre]})
+        if(!gameContent.genreIds.includes(selGenre)){
+            setGameContent({...gameContent,genreIds:[...gameContent.genreIds,selGenre]})
             setErrorGenreIds('');
             const data = {id:selGenre, name:selGenreName}
             return dispatch(addIdNameGenre(data))
         };
         
-        console.log('estado.genreIds al final dentro de genresHandler', estado.genreIds);
+        console.log('gameContent.genreIds al final dentro de genresHandler', gameContent.genreIds);
     }; 
 
     const removeGenreHandler = (id)=>{
-        setEstado({...estado,genreIds:estado.genreIds.filter(genre => genre!==id)})
+        setGameContent({...gameContent,genreIds:gameContent.genreIds.filter(genre => genre!==id)})
         dispatch(removeGenre(id))
     };
 
@@ -119,38 +94,38 @@ const Form =()=>{
         if(!regexName.test(name)){
             setErrorName('El nombre debe contener solo letras.');
         }else{
-            setEstado({...estado,name:name});
+            setGameContent({...gameContent,name:name});
             setErrorName('');
         };
     };
 
     const imageHandler =(event)=>{
         const value = event.target.value;
-        setEstado({...estado, image:value});
+        setGameContent({...gameContent, image:value});
         setErrorImage('');
     };
     
     const descriptionHandler =(event)=>{
         const value = event.target.value;
-        setEstado({...estado, description: value});
+        setGameContent({...gameContent, description: value});
         setErrorDescription('');
     };
     
     const platformsHandler =(event)=>{
         const value = event.target.value;
-        setEstado({...estado, platforms:value});
+        setGameContent({...gameContent, platforms:value});
         setErrorPlatforms('');
     };
     
     const releaseDateHandler =(event)=>{
         const value = event.target.value;
-        setEstado({...estado, releaseDate:value});
+        setGameContent({...gameContent, releaseDate:value});
         setErrorReleaseDate('');
     };
     
     const ratingHandler =(event)=>{
         const value = event.target.value;
-        setEstado({...estado, rating:value});
+        setGameContent({...gameContent, rating:value});
         setErrorRating('');
     };
 
@@ -177,11 +152,11 @@ const Form =()=>{
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(estado)
+                body: JSON.stringify(gameContent)
             });
             const data = await response.json();
             if(response.ok){
-                setEstado({
+                setGameContent({
                     name:'',
                     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUSyftxMxT5Jul0j3FOSIyT4djzuJZFf5CYw&usqp=CAU',
                     description:'',
@@ -203,49 +178,49 @@ const Form =()=>{
 
     const errorNameHandler =()=>{
         console.log('entrando a errorNameHandler');
-        if(!estado.name){
+        if(!gameContent.name){
             setErrorName(emptyMessage);
         };
     };
 
     const errorImageHandler =()=>{
         console.log('entrando a errorImageHandler');
-        if(!estado.image){
+        if(!gameContent.image){
             setErrorImage(emptyMessage);
         };
     };
 
     const errorDescriptionHandler =()=>{
         console.log('entrando a errorDescriptionHandler');
-        if(!estado.description){
+        if(!gameContent.description){
             setErrorDescription(emptyMessage);
         };
     };
     
     const errorPlatformsHandler =()=>{
         console.log('entrando a errorPaltformsHandler');
-        if(!estado.platforms){
+        if(!gameContent.platforms){
             setErrorPlatforms(emptyMessage);
         };
     };
 
     const errorReleaseDateHandler =()=>{
         console.log('entrando a errorReleaseDateHandler');
-        if(!estado.releaseDate){
+        if(!gameContent.releaseDate){
             setErrorReleaseDate(emptyMessage);
         };
     };
 
     const errorRatingHandler =()=>{
         console.log('entrando a errorRatingHandler');
-        if(!estado.rating){
+        if(!gameContent.rating){
             setErrorRating(emptyMessage);
         };
     };
 
     const errorGenreIdsHandler =()=>{
         console.log('entrando a errorGenreIdsgHandler');
-        if(estado.genreIds.length===0){
+        if(gameContent.genreIds.length===0){
             setErrorGenreIds('Selecionar.');
         };
     };
@@ -267,7 +242,7 @@ const Form =()=>{
     console.log('errorReleaseDate en form', errorReleaseDate);
     console.log('errorRating en form', errorRating);
     console.log('errorGenerrorGenreIds en form',errorGenreIds);
-    console.log('estado en form', estado);
+    console.log('gameContent en form', gameContent);
     console.log('errorFromBack fuera de addDBHandler', errorFromBack);
 
     return(
@@ -292,69 +267,69 @@ const Form =()=>{
                     <div className={styles.divItem}>
                         {}
                         <label className={styles.item}>Nombre:</label>
-                        <input onChange={nameHandler} value={estado.name} className={styles.input} />
+                        <input onChange={nameHandler} value={gameContent.name} className={styles.input} />
                         <p className={
                             errorName?
                             styles.commentError:
                             styles.comment}>{
                                 errorName?
                                 errorName:
-                                `El nombre ingresado es: ${estado.name}`}</p>
+                                `El nombre ingresado es: ${gameContent.name}`}</p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Url de imagen:</label>
-                        <input onChange={imageHandler} value={estado.image} className={styles.input} />
+                        <input onChange={imageHandler} value={gameContent.image} className={styles.input} />
                         <p className={
                             errorImage?
                             styles.commentError:
                             styles.comment}>{
                                 errorImage?
                                 errorImage:
-                                `La url ingresada es: ${estado.image}`}</p>
+                                `La url ingresada es: ${gameContent.image}`}</p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Descripción:</label>
-                        <input onChange={descriptionHandler} value={estado.description} className={styles.input} />
+                        <input onChange={descriptionHandler} value={gameContent.description} className={styles.input} />
                         <p className={
                             errorDescription?
                             styles.commentError:
                             styles.comment}>{
                             errorDescription?
                             errorDescription:
-                            `La descripción ingresada es: ${estado.description}`}</p>
+                            `La descripción ingresada es: ${gameContent.description}`}</p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Plataformas:</label>
-                        <input onChange={platformsHandler} value={estado.platforms} className={styles.input} />
+                        <input onChange={platformsHandler} value={gameContent.platforms} className={styles.input} />
                         <p className={
                             errorPlatforms?
                             styles.commentError:
                             styles.comment}>{
                                 errorPlatforms?
                                 errorPlatforms:
-                                `Las plataformas ingresadas son: ${estado.platforms}`}</p>
+                                `Las plataformas ingresadas son: ${gameContent.platforms}`}</p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Lanzamiento:</label>
-                        <input onChange={releaseDateHandler} value={estado.releaseDate} className={styles.input} />
+                        <input onChange={releaseDateHandler} value={gameContent.releaseDate} className={styles.input} />
                         <p className={
                             errorReleaseDate?
                             styles.commentError:
                             styles.comment}>{
                                 errorReleaseDate?
                                 errorReleaseDate:
-                                `El lanzamiento ingresado es: ${estado.releaseDate}`}</p>
+                                `El lanzamiento ingresado es: ${gameContent.releaseDate}`}</p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Rating:</label>
-                        <input onChange={ratingHandler} value={estado.rating} className={styles.input} />
+                        <input onChange={ratingHandler} value={gameContent.rating} className={styles.input} />
                         <p className={
                             errorRating?
                             styles.commentError:
                             styles.comment}>{
                                 errorRating?
                             errorRating:
-                            `El rating ingresado es: ${estado.rating}`}</p>
+                            `El rating ingresado es: ${gameContent.rating}`}</p>
                     </div>
                 </div>
                 <div className={styles.selectDiv}>
@@ -371,10 +346,10 @@ const Form =()=>{
                         id="genres"
                         name="genres"
                         multiple
-                        value={estado.genreIds}
+                        value={gameContent.genreIds}
                         onChange={addGenreHandler}
                     >
-                        {genres.map((genre) => (
+                        {genres.slice(1).map((genre) => (
                             <option
                             key={genre.id}
                             value={genre.id}

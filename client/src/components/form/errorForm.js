@@ -7,11 +7,9 @@ const ErrorForm = ()=>{
 
     const errorFromBack = useSelector(state => state.errorFromBack);
     const dispatch = useDispatch();
-
     const cleanErrorFromBackHandler = (value) => {
         return dispatch(changeErrorFromBack(value))
     };
-
     return(
         <div className={styles.global}>
             <div className={styles.div}>

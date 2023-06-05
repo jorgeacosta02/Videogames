@@ -1,7 +1,7 @@
 import styles from './leftBar.module.css';
 import React,{ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { videogameURL } from '../form/form';
 import { 
     getApi,
     getDB,
@@ -61,14 +61,13 @@ const LeftBar =(props)=>{
         await concatToDisplayHandler();
     };
     
-
     useEffect(()=>{
         start();
     },[]);
       
     const postGenres = async () => {
         try {
-          const response = await fetch('http://localhost:3001/genres',
+          const response = await fetch(videogameURL,
           {
               method: 'POST',
             });

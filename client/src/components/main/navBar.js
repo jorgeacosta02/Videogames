@@ -7,7 +7,6 @@ import { nextPage, prevPage } from "../../redux/actions";
 
 export const itemsPerPage = 15;
 
-
 const NavBar =(props)=>{
     
     const currentPage = useSelector(state=>state.currentPage);

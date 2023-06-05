@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { itemsPerPage } from "./navBar";
 
 const Cards =({ display })=>{
-  console.log('display en Cards', display);
+  console.log('display in Cards', display);
   const currentPage = useSelector(state => state.currentPage);
   const lastItem = currentPage + itemsPerPage;
   const pagin = [...display.slice(currentPage,lastItem)];

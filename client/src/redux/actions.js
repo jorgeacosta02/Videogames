@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { videogameURL } from '../components/form/form';
 export const GET_API = 'GET_API';
 export const GET_DB = 'GET_DB';
 export const CONCAT = 'CONCAT';
@@ -66,7 +67,7 @@ export const getApi = () => async (dispatch) => {
         };
         
 export const getDB = () => async dispatch => {
-    await fetch('http://localhost:3001/videogames')
+    await fetch(`${videogameURL}/videogames`)
     .then(res => res.json())
     .then(data => {
     const formattedData = data.map(game => ({
@@ -116,7 +117,7 @@ export const getDBId = (idVideogame) => async dispatch => {
     console.log('idVideogame en getDBId',idVideogame);
     try{
         console.log('dentro del try de getDBId');
-        const response = await fetch(`http://localhost:3001/videogames/${idVideogame}`);
+        const response = await fetch(`${videogameURL}/videogames/${idVideogame}`);
         console.log('después del fetch de getDBId');
         console.log('response en getDBId', response);
         const data = await response.json();
@@ -162,7 +163,7 @@ export const getApiName = (name) => async dispatch => {
 
 export const getDBName = (name) => async dispatch => {
     console.log('name en la action getDBName', name);
-    return await fetch(`http://localhost:3001/videogames/?name=${name}`)
+    return await fetch(`${videogameURL}/videogames/?name=${name}`)
     .then(r => r.json())
     .then(data => dispatch({type:GET_DB_NAME, payload:data}))
 };
@@ -257,7 +258,7 @@ export const searchGenres = () => async (dispatch) => {
     console.log('entrando a searchGenres')
     try {
         console.log('entrando al try de searchGenres')
-        const response = await fetch('http://localhost:3001/genres');
+        const response = await fetch(`${videogameURL}/genres`);
         console.log('response en el try de searchGenres', response);
         if (!response.ok) {
             throw new Error('Error en la respuesta de la solicitud');
