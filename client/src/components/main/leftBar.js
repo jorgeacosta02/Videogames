@@ -67,7 +67,7 @@ const LeftBar =(props)=>{
       
     const postGenres = async () => {
         try {
-          const response = await fetch(videogameURL,
+          const response = await fetch(`${videogameURL}/genres`,
           {
               method: 'POST',
             });
@@ -231,14 +231,14 @@ const LeftBar =(props)=>{
         concatToDisplayHandler();
     };
     
-    const globalNameAZHandler = ()=>{
+    const globalNameAZHandler = async ()=>{
         console.log('globalNameAZHandler funciona');
         currentPage0Handler();
         if(az){
-            nameAZHandler();
+            await nameAZHandler();
             changeAzHandler(false);
         }else{
-            nameZAHandler();
+            await nameZAHandler();
             changeAzHandler(true);
         };
     };

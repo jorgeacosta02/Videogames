@@ -15,8 +15,8 @@ import {
     searchGenres,
 } from "../../redux/actions";
 
-// export const videogameURL = 'http://localhost:3001/videogames';
-export const videogameURL = 'https://videogames-henry-backend-production.up.railway.app/';
+// export const videogameURL = 'http://localhost:3001';
+export const videogameURL = 'https://servidor-videogames-9jjf.onrender.com';
 
 const Form =()=>{
     
@@ -145,7 +145,7 @@ const Form =()=>{
     const addDBHandler = async ()=>{
         
         try {
-            const response = await fetch(videogameURL,
+            const response = await fetch(`${videogameURL}/videogames`,
             {
                 method: 'POST',
                 headers: {
