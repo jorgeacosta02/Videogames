@@ -1,0 +1,13 @@
+:root{
+    
+
+
+    /* Colors */
+    --red-color: red;
+    --black-color: black;
+    --green-color: green;
+
+
+    /* Screen breakpoints*/
+    --Display-Large: 600px;
+}

@@ -1,3 +1,5 @@
+@import '../../global.modules.css';
+
 .container{
     position: relative;
     box-sizing: border-box;
@@ -13,7 +15,7 @@
     top: 13vh;
     left: 2vw;
     color: white;
-    background-color: rgba(0,0,0,.8);
+    background-color: var(--green-color);
     border-radius: 15px;
 }
 .label{
