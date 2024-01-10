@@ -15,8 +15,10 @@ import {
     searchGenres,
 } from "../../redux/actions";
 
+const serveUrl = process.env.REACT_APP_SERVER_URL
+
 // export const videogameURL = 'http://localhost:3001';
-export const videogameURL = 'https://servidor-videogames-9jjf.onrender.com';
+export const videogameURL = serveUrl;
 
 const Form =()=>{
     
