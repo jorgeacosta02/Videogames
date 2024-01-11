@@ -1,0 +1,29 @@
+.div{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 12.5px;
+    border: 1px solid white;
+    height: 25px;
+}
+.name{
+    display: inline-block;
+    margin: 0px;
+    color: white;
+    padding-left: 8px;
+}
+.button{
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 11px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    right: 20px;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: grey;
+}

@@ -1,0 +1,184 @@
+.form{
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../images/img2.jpeg);
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+.div{
+    position: relative;
+    width: 90%;
+    height: 95vh;
+    top: 20px;
+    left: 5vw;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 15px;
+    border: 1px solid white;
+    padding: 0px 15px;
+}
+.divTitle{
+    height: 80px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.title{
+    top: 0px;
+    left: 30px;
+    display:inline-block;
+    color: white;
+}
+.submit{
+    text-decoration: none;
+    display: inline-block;
+    top: 20px;
+    right: 50px;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: 100ms ease;
+}
+.submit:hover{
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.submit:active{
+    background-color: red;
+}
+.submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border: 2px solid gray;
+}
+.back{
+    text-decoration: none;
+    display: inline-block;
+    width: 10%;
+    height: 20px;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 100ms ease;
+    border: 1px solid white;
+}
+.back:hover{
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.back:active{
+    background-color: rgb(123, 12, 12);
+}
+.divData{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 445px;
+    width: 75%;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 0.01px solid white;
+    padding: 10px;
+}
+.divItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    height: 25px;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 8px;
+}
+.item{
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    height: 23px;
+    width: 12%;
+    color: white;
+}
+.input{
+    width: 28%;
+    height: 17px;
+    color: white;
+    background-color: rgba(0,0,0,.5);
+}
+.comment{
+    display: inline-block;
+    text-align: left;
+    padding-left: 8px;
+    height: 23px;
+    width: 50%;
+    color: white;
+    overflow: hidden;
+    margin: 0px;
+}
+.commentError{
+    display: inline-block;
+    text-align: left;
+    padding-left: 8px;
+    height: 23px;
+    width: 50%;
+    color: red;
+    overflow: hidden;
+    margin: 0px;
+}
+.selectDiv{
+    position: absolute;
+    top: 100px;
+    width: 15%;
+    height: 445px;
+    background-color: grey;
+    right: 30px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 10px;
+}
+.selectLabel{
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+}
+.select{
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    width: 90%;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.divSelect{
+    overflow-x: auto;
+    height: 270px;
+}
+.message{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    right: 25%;
+    top: 25%;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    border: 1px solid white;
+    z-index: 2;
+}
+
+
