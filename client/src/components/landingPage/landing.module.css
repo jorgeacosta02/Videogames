@@ -22,7 +22,7 @@
     justify-content: center;
     top: 5vh;
     width: 90vw;
-    height: 80vh;
+    min-height: 90vh;
     left: 5vw;
     color: white;
     padding: 4vw;
@@ -49,10 +49,10 @@
 }
 .in{
     text-decoration: none;
-    display: inline-block;
-
+    box-sizing: border-box;
+    width: 100%;
     color: white;
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
     border-radius: 10px;
     transition: 100ms ease;
 }
@@ -70,12 +70,11 @@
         width: 500px;
     }
     .homeTitle{
-        font-size: 30px;
+        font-size: 2rem;
     }
-    .homeTitle{
-        font-size: 1em;
+    .in{
+        padding: 2vh 0;
     }
-
 }
 
 
