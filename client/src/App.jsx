@@ -1,10 +1,11 @@
+import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Landing from './components/landingPage/landing.js';
-import Home from './components/main/home';
-import Form from './components/form/form';
-import One from './components/one/one';
-import NotFound from './components/notFound/notFound';
+import Landing from './components/landingPage/landing.jsx';
+import Home from './components/main/home.jsx';
+import Form from './components/form/form.jsx';
+import One from './components/one/one.jsx';
+import NotFound from './components/notFound/notFound.jsx';
 
 
 function App() {
