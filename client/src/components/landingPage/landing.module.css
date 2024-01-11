@@ -47,21 +47,31 @@
     margin-right: auto; */
     font-size: .8em;
 }
-.in{
+.divLink{
+    width: 100%;
     text-decoration: none;
     box-sizing: border-box;
     width: 100%;
     color: white;
-    /* padding: 15px 30px; */
+    height: 3vh;
+    min-height: 45px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 100ms ease;
 }
-.in:hover{
+.link{
+    text-decoration: none;
+    color: white;
+ 
+}
+.divLink:hover{
     border: 1px solid rgba(255,255,255,.2);
     background-color: rgba(255,255,255,.1);
     cursor: pointer;
 }
-.in:active{
+.divLink:active{
     background-color: rgb(123, 12, 12);
 }
 
@@ -72,7 +82,7 @@
     .homeTitle{
         font-size: 2rem;
     }
-    .in{
+    .divLink{
         padding: 2vh 0;
     }
 }
