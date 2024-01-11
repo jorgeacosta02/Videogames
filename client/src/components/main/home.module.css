@@ -1,7 +1,8 @@
 .main{
     width: 100vw;
     height: 100vh;
-    background-image: url(../../images/img1.jpg);
-    background-attachment: fixed;
+    background: url(../../images/img1.jpg) no-repeat center center fixed;
     background-size: cover;
+    background-attachment:fixed;
+    background-size:cover;
 }

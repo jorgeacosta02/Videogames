@@ -4,13 +4,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* padding: 0 30px; */
-    top: 30vh;
+    padding: 0;
+    top: 100px;
     width: 55%;
     /* height: 90vh; */
     right: 0.5vw;
     color: white;
-    background-color: blue;
+    /* background-color: blue; */
+    overflow: hidden;
+    overflow-y: scroll;
 }
 @media screen and (width: 800px) {
     .cards{

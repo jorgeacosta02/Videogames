@@ -19,7 +19,7 @@
 }
 .card:hover{
     box-shadow: 20px 20px 20px rgba(0,0,0,1);
-    transform:scale(1.2);
+    transform:scale(1.05);
     transform-origin: center;
     background-color: black;
     cursor: pointer;

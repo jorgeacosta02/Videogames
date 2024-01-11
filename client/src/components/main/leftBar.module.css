@@ -17,6 +17,7 @@
     background-color: var(--dark-black-shadow);
     border-radius: 15px;
     font-size: var(--mobile-p-font-size);
+    overflow-y: scroll;
 }
 .label{
     margin-right: 10px;
