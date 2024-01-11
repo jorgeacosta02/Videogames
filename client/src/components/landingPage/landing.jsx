@@ -11,7 +11,6 @@ const Landing =()=>{
             <p className={styles.homeText}>Esta es una aplicación donde se podrán ver distintos videojuegos con su imagen, y características. Se podrá acceder a mayor cantidad de información de cada videojuego ingresando a través de cada tarjeta.</p>
             <Link to='/videogames' className={styles.in}>INGRESAR</Link>
             </div>
-        
         </div>
     )
 };

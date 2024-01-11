@@ -1,13 +1,13 @@
 :root{
-    
-
-
     /* Colors */
     --red-color: red;
     --black-color: black;
     --green-color: green;
 
+    /* Shadows */
+    --dark-black-shadow: rgba(0,0,0,.8);
+
 
     /* Screen breakpoints*/
-    --Display-Large: 600px;
+    --display-large: 700px;
 }
