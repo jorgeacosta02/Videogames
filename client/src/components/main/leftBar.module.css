@@ -3,7 +3,7 @@
 .container{
     position: relative;
     box-sizing: border-box;
-    top: 13vh;
+    top: 30vh;
     left: 2vw;
     width: 40%;
     padding: 8px 8px;
@@ -11,7 +11,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    gap: 5px;
+    /* justify-content: space-evenly; */
     color: white;
     background-color: var(--dark-black-shadow);
     border-radius: 15px;
@@ -19,11 +20,12 @@
 }
 .label{
     margin-right: 10px;
+    font-size: var(--mobile-p-font-size);
 }
 .button{
     text-decoration: none;
-    display: inline-block;
-    height: 30px;
+    /* display: inline-block; */
+    /* height: 30px; */
     max-height: auto;
     font-size: .9rem;
     width: 90%;

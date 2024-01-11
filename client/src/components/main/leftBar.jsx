@@ -294,11 +294,9 @@ const LeftBar =(props)=>{
             <button className={styles.button} onClick={()=>globalGetIdHandler(id)}       
             >Buscar por el id <b>{id}</b></button><br/>
             <label className={styles.label}>Ingrese nombre:</label>
-
             <input className={styles.input} type='text' onChange={changeNameHandler} value={name}/>
             <button className={styles.button} onClick={()=>globalGetNameHandler(name)}       
             >Buscar por nombre </button>
-
             <label className={styles.label}>Seleccionar Género:</label>
             <select
                 className={styles.select}
@@ -316,7 +314,7 @@ const LeftBar =(props)=>{
                 </option>
                 ))}
             </select>
-            <button className={styles.genreButton} onClick={
+            <button className={styles.button} onClick={
                 genre!=='Seleccionar un género'&&genre!==''?
                 ()=>globalFilterGenreHandler(genre):
                 null}       
@@ -327,7 +325,7 @@ const LeftBar =(props)=>{
             <button className={styles.button} onClick={globalDisplayConcatHandler}>Mostrar todos</button>
             <button className={styles.button} onClick={globalNameAZHandler}>{az?'Ordenar por nombre A-Z':'Ordenar por nombre Z-A'}</button>
             <button className={styles.button} onClick={globalRatingAZHandler}>{ratAZ?'Ordenar por rating <->':'Ordenar por rating >-<'}</button>
-         
+            
         </div>
     )
 };
