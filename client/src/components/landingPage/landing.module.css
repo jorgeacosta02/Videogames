@@ -1,28 +1,28 @@
 @import '../../global.modules.css';
 
-
 .home{
     position:absolute;
     box-sizing: border-box;
     width: 100%;
-    min-height: 100%;
     top: 0px;
     left: 0px;
-    background-image: url(../../images/img1.jpg);
-    background-attachment: fixed;
+    background-color: grey;
+    background: url(../../images/img1.jpg) no-repeat center center fixed;
     background-size: cover;
+    background-attachment:fixed;
+    background-size:cover;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-left: 1px solid white;
+    padding: 5vh 0;
+    overflow-y: scroll;
 }
 .homeContainer{
-    position: absolute;
     box-sizing: border-box;
-    justify-content: center;
     top: 5vh;
     width: 90vw;
-    min-height: 90vh;
+    height: 90vh;
+    overflow: hidden;
     left: 5vw;
     color: white;
     padding: 4vw;
@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 .homeTitle{
     width: 100%;
@@ -38,7 +39,6 @@
     margin-left: auto;
     margin-right: auto;
     font-size: calc(15px + 2vmin);
-
 }
 .homeText{
     width: 100%;
@@ -61,7 +61,6 @@
 .link{
     text-decoration: none;
     color: white;
- 
 }
 .divLink:hover{
     border: 1px solid rgba(255,255,255,.2);
@@ -71,7 +70,6 @@
 .divLink:active{
     background-color: rgb(123, 12, 12);
 }
-
 @media screen and (min-width: 800px) {
     .homeContainer{
         width: 500px;
