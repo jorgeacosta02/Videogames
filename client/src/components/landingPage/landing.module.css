@@ -6,7 +6,6 @@
     width: 100%;
     top: 0px;
     left: 0px;
-    background-color: grey;
     background: url(../../images/img1.jpg) no-repeat center center fixed;
     background-size: cover;
     background-attachment:fixed;
@@ -19,11 +18,11 @@
 }
 .homeContainer{
     box-sizing: border-box;
-    top: 5vh;
+    /* top: 5vh; */
     width: 90vw;
     height: 90vh;
     overflow: hidden;
-    left: 5vw;
+    /* left: 5vw; */
     color: white;
     padding: 4vw;
     background-color: rgba(0,0,0,.8);
@@ -31,7 +30,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-y: scroll;
+    overflow-y:auto;
 }
 .homeTitle{
     width: 100%;
@@ -71,8 +70,15 @@
     background-color: rgb(123, 12, 12);
 }
 @media screen and (min-width: 800px) {
+    .home{
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
     .homeContainer{
         width: 500px;
+        position: absolute;
+        left: 2vw;
     }
     .homeTitle{
         font-size: 2rem;
