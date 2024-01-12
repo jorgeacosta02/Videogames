@@ -119,7 +119,7 @@
 .form:active{
     background-color: rgb(123, 12, 12);
 }
-@media screen and (width: 800px ){
+@media screen and (min-width: 800px ){
     .div{
         position: absolute;
         box-sizing: border-box;

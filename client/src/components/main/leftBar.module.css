@@ -6,11 +6,12 @@
     top: 30vh;
     left: 2vw;
     width: 40%;
+    max-width: 180px;
     padding: 8px 8px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
     gap: 5px;
     /* justify-content: space-evenly; */
     color: white;
@@ -82,23 +83,26 @@
 .genreButton:active{
     background-color: rgb(123, 12, 12);
 }
-@media screen and( min-width: 800px){
+@media screen and (min-width: 800px){
     .container{
         position: relative;
         box-sizing: border-box;
-        padding: 8px 8px;
+        padding: 18px 8px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         justify-content: space-evenly;
-        width: 16%;
+        width: 180px;
         height: 83vh;
         top: 13vh;
         left: 2vw;
         color: white;
         background-color: var(--dark-black-shadow);
         border-radius: 15px;
+    }
+    .label, .button{
+        font-size: var(--desk-p-font-size);
     }
 }
