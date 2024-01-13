@@ -11,8 +11,10 @@ const Main = () => {
     return(
         <div className={styles.main}>
             <NavBar />
-            <LeftBar />
-            <Cards display={display}/>
+            <div className={styles.under}>
+                <LeftBar />
+                <Cards display={display}/>
+            </div>
         </div>
     )
 };

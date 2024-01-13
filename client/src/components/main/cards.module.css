@@ -1,11 +1,11 @@
 .cards{
-    position:absolute;
+    position: relative;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 0;
-    top: 100px;
+    /* top: 100px; */
     width: 55%;
     /* height: 90vh; */
     right: 0.5vw;
