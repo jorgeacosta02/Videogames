@@ -142,7 +142,8 @@
         color: white;
         width: 30%;
         height: 60%;
-        font-size: 150%;
+        font-size: 2vw;
+        padding-left: 2vw;
     }
     .pageDiv{
         box-sizing: border-box;

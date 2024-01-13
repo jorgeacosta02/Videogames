@@ -14,15 +14,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 5vh 0;
-    /* overflow-y: scroll; */
 }
 .homeContainer{
     box-sizing: border-box;
-    /* top: 5vh; */
     width: 90vw;
     height: 90vh;
     overflow: hidden;
-    /* left: 5vw; */
     color: white;
     padding: 4vw;
     background-color: rgba(0,0,0,.8);

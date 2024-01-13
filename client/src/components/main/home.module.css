@@ -1,18 +1,29 @@
 .main{
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background: url(../../images/img1.jpg) no-repeat center center fixed;
     background-size: cover;
-    background-attachment:fixed;
-    background-size:cover;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .under{
-    position: absolute;
-    top: 100px;
+    position: fixed;
+    box-sizing: border-box;
+    margin-top: 100px;
     width: 100%;
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: blue;
-    padding-top: 2vh;
+    overflow-y: auto;
+    padding:  0;
+}
+@media screen and (min-width: 800px){
+    .under{
+        position: relative;
+        margin-top: 70px;
+        height: calc(100vh - 70px);
+        padding: 0;
+    }
 }
