@@ -275,115 +275,116 @@ const Form =()=>{
                         </button>
                     </div>
                 </div>
-                <div className={styles.divData}>
-                    <div className={styles.divItem}>
-                        {}
-                        <label className={styles.item}>Nombre:</label>
-                        <input onChange={nameHandler} value={gameContent.name} className={styles.input} />
-                        <p className={
-                            errorName?
-                            styles.commentError:
-                            styles.comment}>{
+                <div className={styles.divUnder}>
+                    <div className={styles.divData}>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Nombre:</label>
+                            <input onChange={nameHandler} value={gameContent.name} className={styles.input} />
+                            <p className={
                                 errorName?
-                                errorName:
-                                `El nombre ingresado es: ${gameContent.name}`}</p>
-                    </div>
-                    <div className={styles.divItem}>
-                        <label className={styles.item}>Url de imagen:</label>
-                        <input onChange={imageHandler} value={gameContent.image} className={styles.input} />
-                        <p className={
-                            errorImage?
-                            styles.commentError:
-                            styles.comment}>{
-                                errorImage?
-                                errorImage:
-                                `La url ingresada es: ${gameContent.image}`}</p>
-                    </div>
-                    <div className={styles.divItem}>
-                        <label className={styles.item}>Descripción:</label>
-                        <input onChange={descriptionHandler} value={gameContent.description} className={styles.input} />
-                        <p className={
-                            errorDescription?
-                            styles.commentError:
-                            styles.comment}>{
-                            errorDescription?
-                            errorDescription:
-                            `La descripción ingresada es: ${gameContent.description}`}</p>
-                    </div>
-                    <div className={styles.divItem}>
-                        <label className={styles.item}>Plataformas:</label>
-                        <input onChange={platformsHandler} value={gameContent.platforms} className={styles.input} />
-                        <p
-                            className={
-                                errorPlatforms?
                                 styles.commentError:
-                                styles.comment
-                            }
-                        >
-                            {
-                                errorPlatforms?
-                                errorPlatforms:
-                                `Las plataformas ingresadas son: ${gameContent.platforms}`
-                            }
-                        </p>
-                    </div>
-                    <div className={styles.divItem}>
-                        <label className={styles.item}>Lanzamiento:</label>
-                        <input onChange={releaseDateHandler} value={gameContent.releaseDate} className={styles.input} />
-                        <p className={
-                            errorReleaseDate?
-                            styles.commentError:
-                            styles.comment}>{
+                                styles.comment}>{
+                                    errorName?
+                                    errorName:
+                                    `El nombre ingresado es: ${gameContent.name}`}</p>
+                        </div>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Url de imagen:</label>
+                            <input onChange={imageHandler} value={gameContent.image} className={styles.input} />
+                            <p className={
+                                errorImage?
+                                styles.commentError:
+                                styles.comment}>{
+                                    errorImage?
+                                    errorImage:
+                                    `La url ingresada es: ${gameContent.image}`}</p>
+                        </div>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Descripción:</label>
+                            <input onChange={descriptionHandler} value={gameContent.description} className={styles.input} />
+                            <p className={
+                                errorDescription?
+                                styles.commentError:
+                                styles.comment}>{
+                                    errorDescription?
+                                    errorDescription:
+                                    `La descripción ingresada es: ${gameContent.description}`}</p>
+                        </div>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Plataformas:</label>
+                            <input onChange={platformsHandler} value={gameContent.platforms} className={styles.input} />
+                            <p
+                                className={
+                                    errorPlatforms?
+                                    styles.commentError:
+                                    styles.comment
+                                }
+                                >
+                                {
+                                    errorPlatforms?
+                                    errorPlatforms:
+                                    `Las plataformas ingresadas son: ${gameContent.platforms}`
+                                }
+                            </p>
+                        </div>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Lanzamiento:</label>
+                            <input onChange={releaseDateHandler} value={gameContent.releaseDate} className={styles.input} />
+                            <p className={
                                 errorReleaseDate?
-                                errorReleaseDate:
-                                `El lanzamiento ingresado es: ${gameContent.releaseDate}`}</p>
-                    </div>
-                    <div className={styles.divItem}>
-                        <label className={styles.item}>Rating:</label>
-                        <input onChange={ratingHandler} value={gameContent.rating} className={styles.input} />
-                        <p className={
-                            errorRating?
-                            styles.commentError:
-                            styles.comment}>{
+                                styles.commentError:
+                                styles.comment}>{
+                                    errorReleaseDate?
+                                    errorReleaseDate:
+                                    `El lanzamiento ingresado es: ${gameContent.releaseDate}`}</p>
+                        </div>
+                        <div className={styles.divItem}>
+                            <label className={styles.item}>Rating:</label>
+                            <input onChange={ratingHandler} value={gameContent.rating} className={styles.input} />
+                            <p className={
                                 errorRating?
-                            errorRating:
-                            `El rating ingresado es: ${gameContent.rating}`}</p>
+                                styles.commentError:
+                                styles.comment}>{
+                                    errorRating?
+                                    errorRating:
+                                    `El rating ingresado es: ${gameContent.rating}`}</p>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.selectDiv}>
-                    <label className={
-                        errorGenreIds?
-                        styles.commentError:
-                        styles.selectLabel} htmlFor="genres">{
+                    <div className={styles.selectDiv}>
+                        <label className={
                             errorGenreIds?
-                            errorGenreIds:
-                            'Géneros:'
-                        }</label>
-                    <select
-                        className={styles.select}
-                        id="genres"
-                        name="genres"
-                        multiple
-                        value={gameContent.genreIds}
-                        onChange={addGenreHandler}
-                    >
-                        {genres.slice(1).map((genre) => (
-                            <option
-                            key={genre.id}
-                            value={genre.id}
+                            styles.commentError:
+                            styles.selectLabel} htmlFor="genres">{
+                                errorGenreIds?
+                                errorGenreIds:
+                                'Géneros:'
+                            }</label>
+                        <select
+                            className={styles.select}
+                            id="genres"
+                            name="genres"
+                            multiple
+                            value={gameContent.genreIds}
+                            onChange={addGenreHandler}
                         >
-                            {genre.name}
-                        </option>
-                        ))}
-                    </select>
-                    <div className={styles.divSelect}>
-                        {selectedGenres.map(genre => <GenreName
-                            name={genre.name}
-                            id={genre.id}
-                            key={genre.id}
-                            onClick={()=>removeGenreHandler(genre.id)}
-                            />
-                            )}
+                            {genres.slice(1).map((genre) => (
+                                <option
+                                key={genre.id}
+                                value={genre.id}
+                            >
+                                {genre.name}
+                            </option>
+                            ))}
+                        </select>
+                        <div className={styles.divSelect}>
+                            {selectedGenres.map(genre => <GenreName
+                                name={genre.name}
+                                id={genre.id}
+                                key={genre.id}
+                                onClick={()=>removeGenreHandler(genre.id)}
+                                />
+                                )}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -104,6 +104,12 @@ button{
 .back:active{
     background-color: rgb(123, 12, 12);
 }
+.divUnder{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5vh;
+}
 .divData{
     display: flex;
     flex-direction: column;
@@ -191,7 +197,10 @@ button{
     z-index: 2;
 }
 @media screen and (min-width: 800px){
-    .div{
+    .container{
+        height: 100vh;
+    }
+    /* .div{
         position: relative;
         width: 90%;
         height: 95vh;
@@ -201,16 +210,16 @@ button{
         border-radius: 15px;
         border: 1px solid white;
         padding: 0px 15px;
-    }
+    } */
     .divTitle{
         height: 80px;
-        border-bottom: 1px solid white;
+        /* border-bottom: 1px solid white;
         margin-bottom: 20px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        align-items: center;
+        align-items: center; */
     }
     .title{
         top: 0px;
@@ -219,16 +228,7 @@ button{
         color: white;
     }
     .submit{
-        text-decoration: none;
-        display: inline-block;
-        top: 20px;
-        right: 50px;
-        color: white;
-        background-color: black;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 1px solid white;
-        transition: 100ms ease;
+        font-size: var(--desk-p-font-size);
     }
     .submit:hover{
         color: black;
@@ -245,16 +245,7 @@ button{
         border: 2px solid gray;
     }
     .back{
-        text-decoration: none;
-        display: inline-block;
-        width: 10%;
-        height: 20px;
-        color: white;
-        background-color: black;
-        padding: 10px 20px;
-        border-radius: 10px;
-        transition: 100ms ease;
-        border: 1px solid white;
+        font-size: var(--desk-p-font-size);
     }
     .back:hover{
         color: black;
@@ -265,24 +256,28 @@ button{
     .back:active{
         background-color: rgb(123, 12, 12);
     }
+    .divUnder{
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .divData{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
-        height: 445px;
+        min-height: 80%;
         width: 75%;
-        margin-left: 10px;
+        /* margin-left: 10px; */
         border-radius: 20px;
-        border: 0.01px solid white;
+        border: 1px solid white;
         padding: 10px;
     }
     .divItem{
         display: flex;
         flex-direction: row;
         align-items: center;
-        align-content: center;
-        justify-content: space-around;
+        /* align-content: center; */
+        justify-content: flex-start;
         height: 25px;
         overflow: hidden;
         padding: 10px;
@@ -292,20 +287,20 @@ button{
     }
     .item{
         display: inline-block;
-        text-align: center;
+        text-align: left;
         align-items: center;
         height: 23px;
-        width: 12%;
+        width: 15%;
         color: white;
+        font-size: var(--desk-h4-font-size);
     }
     .input{
-        width: 28%;
-        height: 17px;
+        width: 30%;
+        /* height: 17px; */
         color: white;
         background-color: rgba(0,0,0,.5);
     }
     .comment{
-        display: inline-block;
         text-align: left;
         padding-left: 8px;
         height: 23px;
@@ -313,22 +308,22 @@ button{
         color: white;
         overflow: hidden;
         margin: 0px;
+        font-size: var(--desk-p-font-size);
     }
     .commentError{
-        display: inline-block;
         text-align: left;
         padding-left: 8px;
-        height: 23px;
+        /* height: 23px; */
         width: 50%;
         color: red;
         overflow: hidden;
         margin: 0px;
     }
     .selectDiv{
-        position: absolute;
+        /* position: absolute; */
         top: 100px;
-        width: 15%;
-        height: 445px;
+        width: 20%;
+        min-height: 80%;
         background-color: grey;
         right: 30px;
         background-color: rgba(0,0,0,.5);
