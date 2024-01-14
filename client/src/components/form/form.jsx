@@ -248,7 +248,7 @@ const Form =()=>{
 
     return(
         <form onSubmit={submitHandler} className={styles.form}>
-            <div className={styles.div}>
+            <div className={styles.container}>
                 <div className={styles.divTitle}>
                     <h1 className={styles.title}>Agregar Videojuego</h1>
                     <Link to='/videogames' className={styles.back}>VOLVER</Link>
