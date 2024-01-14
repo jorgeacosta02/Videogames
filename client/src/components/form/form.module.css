@@ -265,20 +265,19 @@ button{
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
+        align-items: center;
         min-height: 80%;
         width: 75%;
-        /* margin-left: 10px; */
         border-radius: 20px;
         border: 1px solid white;
-        padding: 10px;
+        padding: 0 1vw;
     }
     .divItem{
         display: flex;
         flex-direction: row;
         align-items: center;
-        /* align-content: center; */
         justify-content: flex-start;
-        /* height: 25px; */
+        width: 66vw;
         overflow: hidden;
         padding: 10px;
         text-align: center;
