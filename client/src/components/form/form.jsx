@@ -253,7 +253,9 @@ const Form =()=>{
                     <h1 className={styles.title}>
                         Agregar Videojuego
                     </h1>
-                    <div>
+                    <div
+                        className={styles.buttonsDiv}
+                    >
                         <Link
                             to='/videogames'
                             className={styles.back}
@@ -269,7 +271,7 @@ const Form =()=>{
                             className={styles.submit}
                             // disabled={Error}
                         >
-                            Cargar a Base de datos
+                            Cargar a DB
                         </button>
                     </div>
                 </div>
