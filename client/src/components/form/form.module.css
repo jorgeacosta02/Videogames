@@ -1,3 +1,5 @@
+@import '../../global.modules.css';
+
 .form{
     top: 0px;
     width: 100vw;
@@ -10,42 +12,53 @@
 }
 .container{
     position: relative;
-    width: 88vw;
+    width: 100vw;
     /* height: 95vh; */
     /* top: 20px;
     left: 5vw; */
     background-color: rgba(0,0,0,.8);
     /* border-radius: 15px; */
-    border: 1px solid white;
-    padding: 0px 15px;
+    /* border: 1px solid white; */
+    /* padding: 0px 15px; */
 }
 .divTitle{
-    height: 80px;
+    height: 25vh;
     border-bottom: 1px solid white;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    gap: 5px;
+    padding: 0 2vw;
 }
 .title{
     top: 0px;
     left: 30px;
-    display:inline-block;
+    margin: 0;
     color: white;
+    font-size: min(25px, var(--mobile-h2-font-size));
+}
+button{
+    font-size: var(--mobile-p-font-size);
 }
 .submit{
+    box-sizing: border-box;
     text-decoration: none;
-    display: inline-block;
-    top: 20px;
-    right: 50px;
+    height: 8vh;
+    /* display: inline-block; */
+    /* top: 20px;
+    right: 50px; */
     color: white;
     background-color: black;
     padding: 10px 20px;
     border-radius: 10px;
     border: 1px solid white;
     transition: 100ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .submit:hover{
     color: black;
@@ -62,16 +75,20 @@
     border: 2px solid gray;
 }
 .back{
+    box-sizing: border-box;
     text-decoration: none;
-    display: inline-block;
-    width: 10%;
-    height: 20px;
+    /* display: inline-block; */
+    /* width: 10%; */
+    height: 8vh;
     color: white;
     background-color: black;
     padding: 10px 20px;
     border-radius: 10px;
     transition: 100ms ease;
     border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .back:hover{
     color: black;
@@ -87,12 +104,12 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 445px;
-    width: 75%;
-    margin-left: 10px;
+    /* height: 445px; */
+    /* width: 75%; */
+    /* margin-left: 10px; */
     border-radius: 20px;
-    border: 0.01px solid white;
-    padding: 10px;
+    /* border: 0.01px solid white; */
+    padding: 5px;
 }
 .divItem{
     display: flex;
@@ -102,7 +119,7 @@
     justify-content: space-around;
     height: 25px;
     overflow: hidden;
-    padding: 10px;
+    padding: 2vw;
     text-align: center;
     background-color: rgba(0,0,0,.7);
     border-radius: 8px;

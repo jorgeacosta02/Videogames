@@ -250,9 +250,16 @@ const Form =()=>{
         <form onSubmit={submitHandler} className={styles.form}>
             <div className={styles.container}>
                 <div className={styles.divTitle}>
-                    <h1 className={styles.title}>Agregar Videojuego</h1>
-                    <Link to='/videogames' className={styles.back}>VOLVER</Link>
+                    <h1 className={styles.title}>
+                        Agregar Videojuego
+                    </h1>
                     <div>
+                        <Link
+                            to='/videogames'
+                            className={styles.back}
+                        >
+                            VOLVER
+                        </Link>
                         <button
                             onClick={
                                 !Error ?
@@ -261,7 +268,9 @@ const Form =()=>{
                             }
                             className={styles.submit}
                             // disabled={Error}
-                        >Cargar a Base de datos</button>
+                        >
+                            Cargar a Base de datos
+                        </button>
                     </div>
                 </div>
                 <div className={styles.divData}>
@@ -302,13 +311,19 @@ const Form =()=>{
                     <div className={styles.divItem}>
                         <label className={styles.item}>Plataformas:</label>
                         <input onChange={platformsHandler} value={gameContent.platforms} className={styles.input} />
-                        <p className={
-                            errorPlatforms?
-                            styles.commentError:
-                            styles.comment}>{
+                        <p
+                            className={
+                                errorPlatforms?
+                                styles.commentError:
+                                styles.comment
+                            }
+                        >
+                            {
                                 errorPlatforms?
                                 errorPlatforms:
-                                `Las plataformas ingresadas son: ${gameContent.platforms}`}</p>
+                                `Las plataformas ingresadas son: ${gameContent.platforms}`
+                            }
+                        </p>
                     </div>
                     <div className={styles.divItem}>
                         <label className={styles.item}>Lanzamiento:</label>
